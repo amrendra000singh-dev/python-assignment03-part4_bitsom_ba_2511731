@@ -5,35 +5,34 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
 
-# Load the dataset
-
+load data set....
+import panda as pd
 
 csv_path = 'students.csv'
-df = pd.read_csv(csv_path)
+df = pd.read_csv('students.csv')
 df.head()
 # 1. Show first 5 rows
 print('First 5 rows:')
-print(df.head(), end='\n\n')
+print(df.head(),
 
 # 2. Shape and data types
 print('Shape:', df.shape)
 print('\nData types:')
-print(df.dtypes, end='\n\n')
+print(df.dtypes),
 
 # 3. Summary statistics for numeric columns
 print('Summary statistics:')
-print(df.describe(), end='\n\n')
-
+print(df.describe(),)
 # 4. Count of students who passed and failed
 print('Passed/Failed counts:')
-print(df['passed'].value_counts(), end='\n\n')
+print(df['passed'].value_counts(),
 
 # 5. Average score per subject for passing and failing students
 subject_cols = ['math', 'science', 'english', 'history', 'pe']
 print('Average scores for passing students:')
-print(df[df['passed'] == 1][subject_cols].mean(), end='\n\n')
+print(df[df['passed'] == 1][subject_cols].mean(),
 print('Average scores for failing students:')
-print(df[df['passed'] == 0][subject_cols].mean(), end='\n\n')
+print(df[df['passed'] == 0][subject_cols].mean(), 
 
 # 6. Student with highest overall average across all 5 subjects
 # Add avg_score column for later visualization
@@ -41,7 +40,7 @@ print(df[df['passed'] == 0][subject_cols].mean(), end='\n\n')
 df['avg_score'] = df[subject_cols].mean(axis=1)
 best_student = df.loc[df['avg_score'].idxmax()]
 print('Student with highest overall average:')
-print(best_student[['name', 'avg_score']], end='\n\n')
+print(best_student[['name', 'avg_score']], 
 
 # Task 2: Data visualization with Matplotlib
 
@@ -148,7 +147,9 @@ plt.grid(True, linestyle='--', alpha=0.5)
 plt.savefig('plot7_seaborn_scatter.png', bbox_inches='tight')
 plt.show()
 plt.close()
-
+please find out details below........
+   ------------------------------------------------
+               ----------------------------------------------------------------------
 # Comparing Seaborn and Matplotlib
 # Seaborn makes it easier to build statistical plots with fewer lines of code,
 # especially when plotting grouped data and adding regression lines. Matplotlib
@@ -156,6 +157,7 @@ plt.close()
 # for appearance and layout details.
 
 # Task 4: Machine Learning with scikit-learn
+               
 feature_cols = ['math', 'science', 'english', 'history', 'pe', 'attendance_pct', 'study_hours_per_day']
 X = df[feature_cols]
 y = df['passed']
